@@ -1,9 +1,10 @@
-// const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080
 const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const blogRouter = require("./Routes/blog.routes")
+const reviewRouter = require("./Routes/review.routes")
 dotenv.config()
 
 const USERNAME = process.env.mongo_username
@@ -21,6 +22,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/blog",blogRouter)
+app.use("/review",reviewRouter)
 
 app.listen(8080,async()=>{
     try {

@@ -1,18 +1,16 @@
 const {Schema,model} = require("mongoose")
 
 const reviewSchema = new Schema({
-    userID: String,
+    userId: Schema.Types.ObjectId,
     description:{
         type:String,
         required:true
     },
     cDate:{
-        type:Date,
-        default:new Date()
+        type:Date
     },
     uDate:{
-        type:Date,
-        default:new Date()
+        type:Date
     }
 })
 

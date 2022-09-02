@@ -10,12 +10,10 @@ const blogSchema = new Schema({
         required:true
     },
     cDate:{
-        type:Date,
-        default:new Date()
+        type:Date
     },
     uDate:{
-        type:Date,
-        default:new Date()
+        type:Date
     }
 })
 

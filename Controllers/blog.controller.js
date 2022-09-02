@@ -20,14 +20,14 @@ const createBlog = async (req,res)=>{
     const{title,body} = req.body
     const blog =await new BlogSchema({
         title,body,
-        cDate:formatDate(new Date()),
-        uDate:formatDate(new Date())
+        cDate:formatDate(),
+        uDate:formatDate()
     })
     blog.save((err,success)=>{
         if(err){
             return res.status(400).send({message:err.message})
         }
-        return res.status(201).send({message:"Blog Created"})
+        return res.status(201).send({message:"Blog Created",blog})
     })
 
 }
@@ -37,9 +37,9 @@ const updateBlog = async(req,res)=>{
     const{title,body} = req.body
     const user = await BlogSchema.findByIdAndUpdate(
         {_id:id},
-       { $set:{title:title,body:body,uDate:formatDate(new Date())}}
+       { $set:{title:title,body:body,uDate:formatDate()}}
     )
-    return res.status(201).send({message:"blog updated",user})
+    return res.status(201).send({message:"blog updated"})
 }
 
 const deleteBlog = async(req,res)=>{
