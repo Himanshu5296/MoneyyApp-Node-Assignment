@@ -24,7 +24,7 @@ app.get("/",(req,res)=>{
 app.use("/blog",blogRouter)
 app.use("/review",reviewRouter)
 
-app.listen(8080,async()=>{
+app.listen(PORT,async()=>{
     try {
         await connection
         console.log("connect to database")
